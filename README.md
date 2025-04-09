@@ -12,7 +12,7 @@
   - [Greedy Motif Search](#greedy-motif-search)
   - [Needleman-Wunsch (Global Alignment)](#needleman-wunsch-global-alignment)
   - [Smith-Waterman (Local Alignment)](#smith-waterman-local-alignment)
-
+-[Bioinformatics Midterm 2 Vocabulary List]
     
 ## Regulatory Motif Finding
 
