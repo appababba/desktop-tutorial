@@ -12,7 +12,7 @@
   - [Greedy Motif Search](#greedy-motif-search)
   - [Needleman-Wunsch (Global Alignment)](#needleman-wunsch-global-alignment)
   - [Smith-Waterman (Local Alignment)](#smith-waterman-local-alignment)
--[Bioinformatics Midterm 2 Vocabulary List]
+-[Bioinformatics Midterm 2 Vocabulary List](#bioinformatics-Midterm-2-Vocabulary-List)
     
 ## Regulatory Motif Finding
 
@@ -296,7 +296,7 @@ This document provides pseudocode summaries for common motif finding and sequenc
 
 
 
-# Bioinformatics Midterm 2 Vocabulary List
+## Bioinformatics Midterm 2 Vocabulary List
 
 **Table of Contents**
 * [Motif Finding](#motif-finding)
