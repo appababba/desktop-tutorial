@@ -12,7 +12,7 @@
   - [Greedy Motif Search](#greedy-motif-search)
   - [Needleman-Wunsch (Global Alignment)](#needleman-wunsch-global-alignment)
   - [Smith-Waterman (Local Alignment)](#smith-waterman-local-alignment)
-
+- [Bioinformatics Midterm 2 Vocabulary List](# Bioinformatics Midterm 2 Vocabulary List)
     
 ## Regulatory Motif Finding
 
@@ -290,6 +290,88 @@ This document provides pseudocode summaries for common motif finding and sequenc
     * Start from the cell `(max_i, max_j)` containing `max_score`.
     * Follow pointers (or recalculate path) back until a cell with a score of `0` is reached.
     * This path corresponds to the best local alignment. (Multiple paths might exist if there are ties for `max_score`).
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Bioinformatics Midterm 2 Vocabulary List
+
+## Motif Finding
+
+* **Motif**: A short, recurring pattern in DNA or protein sequences, often indicating a biological function like a transcription factor binding site.
+* **Regulatory Motif**: A specific motif found in the regulatory regions of genes where transcription factors bind to control gene expression.
+* **Transcription Factor (TF)**: A protein that binds to specific DNA sequences (motifs) to control the rate of transcription of genetic information from DNA to messenger RNA.
+* **Binding Site**: The specific sequence segment (motif instance) where a protein (like a TF) attaches to DNA or RNA.
+* **Motif Finding Problem**: The computational challenge of identifying motifs within a set of biological sequences without prior knowledge of the motif's pattern. Often NP-hard.
+* **Pattern-Driven Approach**: A motif finding strategy that enumerates all possible patterns (l-mers) and selects the one(s) that appear most frequently or significantly.
+* **Alignment Matrix**: A matrix representing the alignment of motif instances, where rows correspond to sequences and columns to positions within the motif.
+* **Profile Matrix (Position Weight Matrix - PWM)**: A matrix summarizing the frequency of each nucleotide (or amino acid) at each position within a set of aligned motif instances.
+* **Consensus String**: The sequence derived from a profile matrix by selecting the most frequent character at each position.
+* **Consensus Score**: A measure of the strength or conservation of a motif, calculated based on the frequencies in the profile matrix (sum of the counts of the consensus base at each position).
+* **l-mer**: A substring of length 'l'.
+* **Hamming Distance**: The number of positions at which two strings of equal length differ.
+* **Total Hamming Distance**: The sum of Hamming distances between a pattern `v` and a set of l-mers `S` (one l-mer from each sequence).
+* **Total Distance (v, DNA)**: The minimum total Hamming distance between a pattern `v` and *any* set of l-mers `S` chosen from the DNA sequences.
+* **Median String**: An l-mer `v` that minimizes the Total Distance (v, DNA) over all possible l-mers of length l. Finding the median string is equivalent to solving the motif finding problem.
+* **Brute-Force Search**: An exhaustive search method that checks every possible solution (e.g., all possible starting positions `S` for motif finding, or all possible l-mers `v` for median string finding).
+* **Branch-and-Bound**: An optimization technique for search algorithms that prunes branches of the search space that cannot contain the optimal solution, based on estimated bounds.
+* **Greedy Algorithm**: An algorithm that makes the locally optimal choice at each step, hoping to find a global optimum. Faster but not guaranteed to be exact.
+* **l-mer Tree**: A tree structure used to represent all possible l-mers, often used in branch-and-bound algorithms for median string finding.
+* **t-mer Tree**: A tree structure representing all possible combinations of starting positions `S = (s1, s2, ..., st)`, used in motif finding algorithms.
+
+## Sequence Alignment
+
+* **Sequence Alignment**: The process of arranging sequences (DNA, RNA, or protein) to identify regions of similarity, which may indicate functional, structural, or evolutionary relationships.
+* **Global Alignment**: An alignment method that attempts to align every residue in two sequences from end to end. Suitable for closely related sequences of similar length. (Needleman-Wunsch algorithm).
+* **Local Alignment**: An alignment method that finds the highest-scoring regions of similarity between two sequences, even if the overall sequences are dissimilar. Suitable for finding conserved domains or motifs. (Smith-Waterman algorithm).
+* **Semi-Global Alignment**: A variation of global alignment where gaps at the beginning or end of the alignment do not incur penalties. Useful for aligning a shorter sequence within a longer one (e.g., finding overlaps).
+* **Edit Distance**: The minimum number of single-character edits (insertions, deletions, substitutions) required to change one string into another. Related to alignment score.
+* **Similarity Score**: A numerical value assigned to an alignment based on matches, mismatches, and gaps, reflecting the degree of similarity between the aligned sequences.
+* **Scoring Matrix**: A matrix defining the scores for aligning any pair of characters (e.g., nucleotides or amino acids), including matches, mismatches, and gaps (character vs. '-'). Examples: PAM, BLOSUM for proteins.
+* **Needleman-Wunsch Algorithm**: A dynamic programming algorithm for computing the optimal global alignment score and alignment.
+* **Smith-Waterman Algorithm**: A dynamic programming algorithm for computing the optimal local alignment score and alignment. Allows scores to reset to 0.
+* **Dynamic Programming**: An algorithmic technique that solves complex problems by breaking them down into simpler overlapping subproblems, storing the results of subproblems to avoid redundant computations.
+* **Longest Common Subsequence (LCS)**: The longest sequence that is a subsequence of two or more given sequences. A special case of global alignment.
+* **Gap**: One or more consecutive space ('-') characters introduced into a sequence during alignment to improve the match with another sequence.
+* **Gap Penalty**: A scoring penalty applied during alignment for the introduction of gaps.
+    * **Linear Gap Penalty**: Penalty is directly proportional to the length of the gap (penalty = gap\_length * cost\_per\_space).
+    * **Affine Gap Penalty**: Penalty consists of a higher cost for opening a gap (gap open penalty, `h`) and a lower cost for extending it (gap extension penalty, `s`). Total penalty = `h + q*s` where `q` is gap length.
+    * **Convex Gap Penalty**: Gap extension penalty decreases as the gap gets longer.
+* **PAM (Point Accepted Mutation) Matrix**: A family of protein scoring matrices based on observed mutation frequencies in closely related proteins, extrapolated to estimate evolutionary distances. PAM1 corresponds to 1 accepted mutation per 100 residues. Higher PAM numbers (e.g., PAM250) are for more distant relationships.
+* **BLOSUM (Blocks Substitution Matrix)**: A family of protein scoring matrices derived from observed substitutions within conserved blocks (ungapped alignments) of related proteins. BLOSUM62 (derived from blocks with >=62% identity) is commonly used. Higher BLOSUM numbers (e.g., BLOSUM80) are for more closely related sequences.
+
+## BLAST (Basic Local Alignment Search Tool)
+
+* **BLAST**: A suite of heuristic algorithms designed for rapidly searching sequence databases to find local alignments similar to a query sequence.
+* **Heuristic Algorithm**: An algorithm designed to solve a problem faster when classic methods are too slow, or to find an approximate solution when classic methods fail to find an exact solution. BLAST uses heuristics to speed up database searches.
+* **Homology Search**: Searching a database to find sequences that share a common evolutionary origin (homologs) with a query sequence, often inferred from sequence similarity.
+* **Query**: The input sequence (DNA, RNA, or protein) used to search against a database.
+* **Database**: A large collection of sequences (e.g., GenBank nr, SwissProt) against which the query is compared.
+* **Seeding (Word Matching)**: The initial step in BLAST where short, exact or near-exact matches (words or seeds) between the query and database sequences are identified. (Word size W is typically 3 for proteins, 7-11 for DNA).
+* **Neighborhood Words**: For protein BLAST, seeds include the original word from the query plus similar words whose alignment score with the original word meets a threshold (T).
+* **Extension**: The process in BLAST where initial seed matches (hits) are extended in both directions (without gaps initially) to generate High-scoring Segment Pairs (HSPs). Extension stops when the score drops below a certain threshold from the maximum score achieved so far.
+* **HSP (High-scoring Segment Pair)**: A local alignment between the query and a database sequence with a score above a certain cutoff, generated during the extension phase. Does not contain gaps initially.
+* **Gapped Alignment**: The process in BLAST where HSPs are further refined by allowing insertions and deletions (gaps), typically using a Smith-Waterman-like algorithm around the initial HSPs.
+* **E-value (Expect Value)**: The number of alignments with a score equal to or greater than the observed score that are expected to occur purely by chance in a database search. A lower E-value indicates a more statistically significant match. (E.g., E-value of 1e-5 means a match this good is expected by chance 1 in 100,000 times).
+* **Bit Score**: A normalized score derived from the raw alignment score that accounts for the scoring system used (e.g., BLOSUM62) and is independent of database size. Higher bit scores indicate better alignments.
+* **Effective Length**: Adjustments made to the actual lengths of the query and database sequences to account for edge effects in alignment scoring.
+* **BLASTP**: BLAST program for comparing a protein query against a protein database.
+* **BLASTN**: BLAST program for comparing a nucleotide query against a nucleotide database.
+* **BLASTX**: BLAST program for comparing a translated nucleotide query (all 6 reading frames) against a protein database.
+* **TBLASTN**: BLAST program for comparing a protein query against a translated nucleotide database (all 6 reading frames).
+* **TBLASTX**: BLAST program for comparing a translated nucleotide query against a translated nucleotide database (computationally intensive).
+
+
+
 
 
 
