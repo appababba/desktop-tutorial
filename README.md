@@ -12,7 +12,7 @@
   - [Greedy Motif Search](#greedy-motif-search)
   - [Needleman-Wunsch (Global Alignment)](#needleman-wunsch-global-alignment)
   - [Smith-Waterman (Local Alignment)](#smith-waterman-local-alignment)
-- [Bioinformatics Midterm 2 Vocabulary List](# Bioinformatics Midterm 2 Vocabulary List)
+
     
 ## Regulatory Motif Finding
 
@@ -296,14 +296,14 @@ This document provides pseudocode summaries for common motif finding and sequenc
 
 
 
-
-
-
-
-
-
-
 # Bioinformatics Midterm 2 Vocabulary List
+
+**Table of Contents**
+* [Motif Finding](#motif-finding)
+* [Sequence Alignment](#sequence-alignment)
+* [BLAST (Basic Local Alignment Search Tool)](#blast-basic-local-alignment-search-tool)
+
+---
 
 ## Motif Finding
 
@@ -369,9 +369,6 @@ This document provides pseudocode summaries for common motif finding and sequenc
 * **BLASTX**: BLAST program for comparing a translated nucleotide query (all 6 reading frames) against a protein database.
 * **TBLASTN**: BLAST program for comparing a protein query against a translated nucleotide database (all 6 reading frames).
 * **TBLASTX**: BLAST program for comparing a translated nucleotide query against a translated nucleotide database (computationally intensive).
-
-
-
 
 
 
