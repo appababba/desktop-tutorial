@@ -1,5 +1,5 @@
 # CS175 Midterm 2 Review Notes
-
+-[Bioinformatics Midterm 2 Vocabulary List](#bioinformatics-Midterm-2-Vocabulary-List)
 ## Table of Contents
 - [Regulatory Motif Finding](#regulatory-motif-finding)
 - [Sequence Alignment](#sequence-alignment)
@@ -12,7 +12,7 @@
   - [Greedy Motif Search](#greedy-motif-search)
   - [Needleman-Wunsch (Global Alignment)](#needleman-wunsch-global-alignment)
   - [Smith-Waterman (Local Alignment)](#smith-waterman-local-alignment)
--[Bioinformatics Midterm 2 Vocabulary List](#bioinformatics-Midterm-2-Vocabulary-List)
+
     
 ## Regulatory Motif Finding
 
