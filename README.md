@@ -1,5 +1,19 @@
 # CS175 Midterm 2 Review Notes
 
+## Table of Contents
+- [Regulatory Motif Finding](#regulatory-motif-finding)
+- [Sequence Alignment](#sequence-alignment)
+- [Gap Penalty Models](#gap-penalty-models)
+- [Similarity Score Matrices (Proteins)](#similarity-score-matrices-proteins)
+- [Bioinformatics Algorithms: Pseudocode Summary](#bioinformatics-algorithms-pseudocode-summary)
+  - [Brute-force Motif Search](#brute-force-motif-search)
+  - [Brute-force Median String Search](#brute-force-median-string-search)
+  - [Branch-and-Bound Median String Search](#branch-and-bound-median-string-search)
+  - [Greedy Motif Search](#greedy-motif-search)
+  - [Needleman-Wunsch (Global Alignment)](#needleman-wunsch-global-alignment)
+  - [Smith-Waterman (Local Alignment)](#smith-waterman-local-alignment)
+
+    
 ## Regulatory Motif Finding
 
 **Goal:** Find short, recurring patterns (motifs) in DNA sequences.
